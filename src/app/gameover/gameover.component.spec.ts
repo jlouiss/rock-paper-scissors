@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 import { GameoverComponent } from './gameover.component';
+import { RouterLinkStubDirective } from '../testing/router-link-stub.directive';
+
 
 describe('GameoverComponent', () => {
   let component: GameoverComponent;
@@ -8,9 +13,21 @@ describe('GameoverComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GameoverComponent ]
+      imports: [RouterTestingModule],
+      declarations: [
+        GameoverComponent,
+        RouterLinkStubDirective
+      ],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({ result: 0 })
+          }
+        }
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
