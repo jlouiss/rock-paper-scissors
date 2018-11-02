@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StartComponent } from './start.component';
+import { RouterLinkStubDirective } from '../testing/router-link-stub.directive';
+
 
 describe('StartComponent', () => {
   let component: StartComponent;
@@ -8,9 +10,12 @@ describe('StartComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StartComponent ]
+      declarations: [
+        StartComponent,
+        RouterLinkStubDirective
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
