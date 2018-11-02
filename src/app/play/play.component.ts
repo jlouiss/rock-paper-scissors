@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 
+import { Moves, RockPaperScissorsService } from './rock-paper-scissors.service';
+import { Router } from '@angular/router';
 
-export enum Choice {
-  Rock = 0,
-  Paper = 1,
-  Scissors = 2
-}
 
 @Component({
   selector: 'app-play',
@@ -14,12 +11,18 @@ export enum Choice {
 })
 export class PlayComponent {
 
-  public Choice = Choice;
+  public Moves = Moves;
+  computerMove = null;
+  lock = false;
 
-  constructor() {
+  constructor(private rockPaperScissorsService: RockPaperScissorsService, private router: Router) {
   }
 
-  userChoice(choice: Choice) {
+  pick(move: string) {
+    this.lock = true;
+    this.computerMove = this.rockPaperScissorsService.pickComputerMove();
+    const gameResult = this.rockPaperScissorsService.calculateResult(move, this.computerMove);
+    setTimeout(() => this.router.navigate(['/gameover', gameResult]), 1000);
   }
 
 }

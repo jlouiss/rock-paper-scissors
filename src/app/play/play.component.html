@@ -1,19 +1,25 @@
 <div class="container h-100">
   <div class="row h-100">
-    <div class="col-12 h-100">
+    <div class="col-12 h-75">
 
       <p class="option">
-        <i class="far fa-hand-rock fa-7x" (click)="userChoice(Choice.Rock)"></i>
+        <i class="far fa-hand-rock fa-7x" (click)="lock ? null : pick(Moves.Rock)"></i>
       </p>
 
       <p class="option">
-        <i class="far fa-hand-paper fa-7x" (click)="userChoice(Choice.Paper)"></i>
+        <i class="far fa-hand-paper fa-7x" (click)="lock ? null : pick(Moves.Paper)"></i>
       </p>
 
       <p class="option">
-        <i class="far fa-hand-scissors fa-7x" (click)="userChoice(Choice.Scissors)"></i>
+        <i class="far fa-hand-scissors fa-7x" (click)="lock ? null : pick(Moves.Scissors)"></i>
       </p>
 
+    </div>
+    <div class="col-12 h-25" *ngIf="computerMove">
+      <p class="lead">The computer chose</p>
+      <p class="option disabled">
+        <i class="far fa-hand-{{ computerMove | lowercase }} fa-7x"></i>
+      </p>
     </div>
   </div>
 </div>

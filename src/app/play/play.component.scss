@@ -6,7 +6,7 @@
   .option {
     margin: 3.5rem;
     transition: all 0.2s ease-in;
-    &:hover {
+    &:not(.disabled):hover {
       color: var(--primary, #007bff);
       cursor: pointer;
       transform: scale(1.1);
