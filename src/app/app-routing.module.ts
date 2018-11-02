@@ -9,8 +9,8 @@ import { StartComponent } from './start/start.component';
 const routes: Routes = [
   { path: 'start', component: StartComponent },
   { path: 'play', component: PlayComponent },
-  { path: 'gameover', component: GameoverComponent },
-  { path: '**', redirectTo: 'start' },
+  { path: 'gameover/:result', component: GameoverComponent },
+  { path: '**', redirectTo: '/start' },
 ];
 
 @NgModule({

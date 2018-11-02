@@ -1,3 +1,10 @@
-<p>
-  gameover works!
-</p>
+<div class="container h-100">
+  <div class="row h-100" *ngIf="result">
+    <div class="col-12 h-75">
+      <h3 class="display-4">{{ result }}</h3>
+    </div>
+    <div class="col-12 h-25">
+      <a [routerLink]="'/play'" class="btn btn-outline-success btn-play">Play again</a>
+    </div>
+  </div>
+</div>
