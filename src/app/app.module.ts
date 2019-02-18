@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { PlayComponent } from './play/play.component';
 import { GameoverComponent } from './gameover/gameover.component';
 import { StartComponent } from './start/start.component';
+import { RouterLinkStubDirective } from './testing/router-link-stub.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayComponent,
     GameoverComponent,
-    StartComponent
+    StartComponent,
+    RouterLinkStubDirective
   ],
   imports: [
     BrowserModule,
